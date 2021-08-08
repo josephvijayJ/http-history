@@ -28,33 +28,13 @@ The notion of HTTP headers has been introduced, both for the requests and the re
 With the help of the new HTTP headers, the ability to transmit other documents than plain HTML files has been added (thanks to the Content-Type header).
 At this point, a typical request and response looked like this:
 
-GET /mypage.html HTTP/1.0
-User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
 
-200 OK
-Date: Tue, 15 Nov 1994 08:12:31 GMT
-Server: CERN/3.0 libwww/2.17
-Content-Type: text/html
-<HTML>
-A page with an image
-  <IMG SRC="/myimage.gif">
-</HTML>
-Followed by a second connection and request to fetch the image (followed by a response to that request):
-
-GET /myimage.gif HTTP/1.0
-User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
-
-200 OK
-Date: Tue, 15 Nov 1994 08:12:32 GMT
-Server: CERN/3.0 libwww/2.17
-Content-Type: text/gif
-(image content)
 These novelties have not been introduced as concerted effort, but as a try-and-see approach over the 1991-1995 period: a server and a browser added one feature and it saw if it got traction. A lot of interoperability problems were common. In November 1996, in order to solve these annoyances, an informational document describing the common practices has been published, RFC 1945. This is the definition of HTTP/1.0 and it is notable that, in the narrow sense of the term, it isn't an official standard.
 
-HTTP/1.1 – The standardized protocol
+# HTTP/1.1 – The standardized protocol
 In parallel to the somewhat chaotic use of the diverse implementations of HTTP/1.0, and since 1995, well before the publication of HTTP/1.0 document the next year, proper standardization was in progress. The first standardized version of HTTP, HTTP/1.1 was published in early 1997, only a few months after HTTP/1.0.
 
-HTTP/1.1 clarified ambiguities and introduced numerous improvements:
+# HTTP/1.1 clarified ambiguities and introduced numerous improvements:
 
 A connection can be reused, saving the time to reopen it numerous times to display the resources embedded into the single original document retrieved.
 Pipelining has been added, allowing to send a second request before the answer for the first one is fully transmitted, lowering the latency of the communication.
@@ -63,3 +43,14 @@ Additional cache control mechanisms have been introduced.
 Content negotiation, including language, encoding, or type, has been introduced, and allows a client and a server to agree on the most adequate content to exchange.
 Thanks to the Host header, the ability to host different domains at the same IP address now allows server colocation.
 
+## versions and Features
+
+The Hypertext Transfer Protocol (HTTP) is an application layer protocol in the Internet protocol suite model for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web, where hypertext documents include hyperlinks to other resources that the user can easily access, for example by a mouse click or by tapping the screen in a web browser.
+
+Development of HTTP was initiated by Tim Berners-Lee at CERN in 1989. Development of early HTTP Requests for Comments (RFCs) was a coordinated effort by the Internet Engineering Task Force (IETF) and the World Wide Web Consortium (W3C), with work later moving to the IETF.
+
+HTTP/1 was first documented (as version 1.1) in 1997.
+
+HTTP/2 is a more efficient expression of HTTP's semantics "on the wire", and was published in 2015, and is used by 45% of websites; it is now supported by virtually all web browsers and major web servers over Transport Layer Security (TLS) using an Application-Layer Protocol Negotiation (ALPN) extension where TLS 1.2 or newer is required.
+
+HTTP/3 is the proposed successor to HTTP/2, and two-thirds of web browser users (both on desktop and mobile) can already use HTTP/3, on the 20% of websites that already support it; it uses QUIC instead of TCP for the underlying transport protocol. Like HTTP/2, it does not obsolete previous major versions of the protocol. Support for HTTP/3 was added to Cloudflare and Google Chrome first, and is also enabled in Firefox.
